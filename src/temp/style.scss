@@ -1,0 +1,112 @@
+$stepSize: 20px;
+$themColor: #eceff1;
+$themActiveBackgroundColor: #505f79;
+$themFinashBackgroundColor: #c8e6c9;
+$themFinashColor: #4caf50;
+$themErrorBackgroundColor: #f53c32;
+
+.steps-container {
+  display: inline-block;
+  width: auto;
+}
+.steps {
+  display: flex;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  width: 200px;
+  height: $stepSize * 2;
+  line-height: $stepSize * 2;
+
+  &:last-child {
+    .arrowContent {
+      background-color: transparent;
+    }
+
+    .arrowEnd {
+      opacity: 0;
+    }
+  }
+
+  .content {
+    flex: 1;
+    background-color: $themColor;
+    text-align: center;
+    font-size: 12px;
+    color: #909090;
+  }
+
+  .arrowContent {
+    position: relative;
+    width: $stepSize + 10;
+    background-color: #fff;
+  }
+  .arrowStart {
+    width: 0;
+    height: 0;
+    border-width: $stepSize 0 $stepSize $stepSize;
+    border-style: solid;
+    border-color: transparent;
+    border-left-color: $themColor;
+  }
+  .arrowEnd {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-width: $stepSize 0 $stepSize $stepSize;
+    border-style: solid;
+    border-color: $themColor;
+    border-left-color: transparent;
+  }
+
+  .arrowStart {
+    &.process {
+      border-left-color: $themActiveBackgroundColor;
+    }
+    &.finish {
+      border-left-color: $themFinashBackgroundColor;
+    }
+    &.error {
+      border-left-color: $themErrorBackgroundColor;
+    }
+  }
+  .arrowEnd {
+    &.process {
+      border-color: $themActiveBackgroundColor;
+      border-left-color: transparent;
+    }
+    &.finish {
+      border-color: $themFinashBackgroundColor;
+      border-left-color: transparent;
+    }
+    &.error {
+      border-color: $themErrorBackgroundColor;
+      border-left-color: transparent;
+    }
+  }
+
+  &.process {
+    .content {
+      background-color: $themActiveBackgroundColor;
+      color: #fff;
+    }
+  }
+
+  &.finish {
+    .content {
+      background-color: $themFinashBackgroundColor;
+      color: $themFinashColor;
+    }
+  }
+
+  &.error {
+    .content {
+      background-color: $themErrorBackgroundColor;
+      color: #fff;
+    }
+  }
+}
