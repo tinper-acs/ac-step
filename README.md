@@ -57,7 +57,7 @@ export default Demo;
 |:--|:---:|:--:|---:|
 | className| 类名 | string | - |
 | current | 当前是的步骤的索引值 | number | 0 |
-| status | 当前步骤的状态，允许输入的值有："wait", "process", "finish", "error" | "process" |
+| status | 当前步骤的状态，允许输入的值有："wait", "process", "finish", "error" | string | process |
 
 ### AcSteps.StepItem
 
