@@ -7,7 +7,6 @@
 
 import React, { Component } from "react";
 import Steps from "../../src/index";
-import StepItem from "../../src/temp/Item";
 
 class Demo1 extends Component {
   render() {
@@ -33,7 +32,7 @@ class Demo1 extends Component {
       <div className="demoPadding">
         <Steps current={2} status="error">
           {data.map((item, index) => (
-            <StepItem key={item.key} index={index} title={item.title} />
+            <Steps.StepItem key={item.key} index={index} title={item.title} />
           ))}
         </Steps>
       </div>
