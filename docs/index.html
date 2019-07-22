@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title></title>
+    <title>步骤条</title>
     <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.css"/>
     <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.css"/>
     <link type="text/css" rel="stylesheet" href="assets/css/pilcrow.css"/>
@@ -14,9 +14,129 @@
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span3"><ul class="nav nav-list">
+    <li class="sidebar-header-1"><a href="#步骤条">步骤条</a></li>
+    <li class="sidebar-header-2"><a href="#如何使用">如何使用</a></li>
+    <li class="sidebar-header-2"><a href="#代码演示">代码演示</a></li>
+    <li class="sidebar-header-2"><a href="#api">API</a></li>
+    <li class="sidebar-header-3"><a href="#acsteps">AcSteps</a></li>
+    <li class="sidebar-header-3"><a href="#acsteps.stepitem">AcSteps.StepItem</a></li>
+    <li class="sidebar-header-2"><a href="#注意事项">注意事项</a></li>
+    <li class="sidebar-header-2"><a href="#更新日志">更新日志</a></li>
 </ul>
       </div>
-      <div class="span9 main"><p>### </p>
+      <div class="span9 main"><h1 id="步骤条">步骤条</h1>
+<h2 id="如何使用">如何使用</h2>
+<pre class="hljs"><code>npm install ac-<span class="hljs-built_in">step</span></code></pre><h2 id="代码演示">代码演示</h2>
+<pre class="hljs"><code><span class="hljs-keyword">import</span> React, { Component } <span class="hljs-keyword">from</span> <span class="hljs-string">"react"</span>;
+<span class="hljs-keyword">import</span> AcStep <span class="hljs-keyword">from</span> <span class="hljs-string">"ac-step"</span>;
+<span class="hljs-keyword">import</span> <span class="hljs-string">"ac-step/dist/index.css"</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Demo</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Component</span> </span>{
+  render() {
+    <span class="hljs-keyword">const</span> data = [
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-number">0</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">"第一步"</span>
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">"第二步"</span>
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">"第三步"</span>
+      },
+      {
+        <span class="hljs-attr">key</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-attr">title</span>: <span class="hljs-string">"第四步"</span>
+      }
+    ];
+    <span class="hljs-keyword">return</span> (
+      <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">Steps</span> <span class="hljs-attr">current</span>=<span class="hljs-string">{2}</span> <span class="hljs-attr">status</span>=<span class="hljs-string">"error"</span>&gt;</span>
+        {data.map((item, index) =&gt; (
+          <span class="hljs-tag">&lt;<span class="hljs-name">Steps.StepItem</span>
+            <span class="hljs-attr">key</span>=<span class="hljs-string">{item.key}</span>
+            <span class="hljs-attr">index</span>=<span class="hljs-string">{index}</span>
+            <span class="hljs-attr">title</span>=<span class="hljs-string">{item.title}</span>
+          /&gt;</span>
+        ))}
+      <span class="hljs-tag">&lt;/<span class="hljs-name">Steps</span>&gt;</span>
+  );
+  }
+}
+
+export default Demo;</span></code></pre><h2 id="api">API</h2>
+<h3 id="acsteps">AcSteps</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">className</td>
+<td style="text-align:center">类名</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td style="text-align:left">current</td>
+<td style="text-align:center">当前是的步骤的索引值</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">0</td>
+</tr>
+<tr>
+<td style="text-align:left">status</td>
+<td style="text-align:center">当前步骤的状态，允许输入的值有：&quot;wait&quot;, &quot;process&quot;, &quot;finish&quot;, &quot;error&quot;</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">process</td>
+</tr>
+<tr>
+<td style="text-align:left">successType</td>
+<td style="text-align:center">成功状态显示内容：&quot;icon&quot;, &quot;text&quot;</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">text</td>
+</tr>
+</tbody>
+</table>
+<h3 id="acsteps.stepitem">AcSteps.StepItem</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:right">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">className</td>
+<td style="text-align:center">类名</td>
+<td style="text-align:center">string</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td style="text-align:left">index</td>
+<td style="text-align:center">索引值</td>
+<td style="text-align:center">number</td>
+<td style="text-align:right">-</td>
+</tr>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:center">显示的内容</td>
+<td style="text-align:center">any</td>
+<td style="text-align:right">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="注意事项">注意事项</h2>
+<p>暂无</p>
+<h2 id="更新日志">更新日志</h2>
       </div>
     </div>
   </div>
