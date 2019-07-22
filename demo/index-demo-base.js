@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Con, Row, Col } from 'bee-layout';
+import { Row, Col } from 'bee-layout';
 import { Panel } from 'bee-panel';
 import Drawer from 'bee-drawer';
-import Clipboard from 'bee-clipboard'; 
+import Clipboard from 'bee-clipboard';
 import './demo.scss';
 
 
@@ -40,15 +40,15 @@ class Demo extends Component {
             <Panel header={header}>
                 {example}
             </Panel>
-           
+
             <Drawer className='component-drawerc' title={title} show={this.state.open} placement='right' onClose={this.fCloseDrawer}>
-            <div className='component-code-copy'> JS代码 
+            <div className='component-code-copy'> JS代码
                 <Clipboard action="copy" text={code}/>
             </div>
             <pre className="pre-js">
                 <code className="hljs javascript">{ code.replace('../../src/index',COMPONENT).replace('../../src',COMPONENT) }</code>
             </pre >
-            {!!scss_code ?<div className='component-code-copy copy-css'> SCSS代码 
+            {!!scss_code ?<div className='component-code-copy copy-css'> SCSS代码
                 <Clipboard action="copy" text={scss_code}/>
             </div>:null }
                 { !!scss_code ? <pre className="pre-css">

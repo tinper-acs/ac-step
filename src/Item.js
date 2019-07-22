@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Icon } from "tinper-bee";
 
 import "./style.scss";
 
@@ -41,11 +42,19 @@ class Item extends React.Component {
     );
   };
   render() {
-    const { title, index, className } = this.props;
+    const { title, index, className, successType } = this.props;
 
     return (
-      <div className={classNames("item", this.getCurrentStatusClass(index), className)}>
-        <div className="content">{title}</div>
+      <div
+        className={classNames(
+          "item",
+          this.getCurrentStatusClass(index),
+          className
+        )}
+      >
+        <div className="content">
+          {this.getCurrentStatusClass(index) === "finish" && successType == "icon" ? <Icon type="uf-correct-2" /> : title}
+        </div>
         {this.getArrow()}
       </div>
     );
@@ -57,7 +66,8 @@ Item.propTypes = {
   className: PropTypes.string,
   index: PropTypes.number,
   current: PropTypes.number,
-  status: PropTypes.oneOf(["wait", "process", "finish", "error"])
+  status: PropTypes.oneOf(["wait", "process", "finish", "error"]),
+  successType: PropTypes.oneOf(["icon", "text"])
 };
 
 export default Item;

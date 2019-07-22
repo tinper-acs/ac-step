@@ -19,6 +19,7 @@ $themErrorBackgroundColor: #f53c32;
   width: 200px;
   height: $stepSize * 2;
   line-height: $stepSize * 2;
+  white-space: nowrap;
 
   &:last-child {
     .arrowContent {

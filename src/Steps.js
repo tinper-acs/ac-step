@@ -7,11 +7,12 @@ import "./style.scss";
 
 class Steps extends Component {
   render() {
-    const { current, status, children, className } = this.props;
+    const { current, status, children, className, successType } = this.props;
 
     const childProps = {
       current,
-      status
+      status,
+      successType
     };
 
     return (
@@ -24,12 +25,14 @@ class Steps extends Component {
 
 Steps.defaultProps = {
   current: 0,
-  status: "process"
+  status: "process",
+  successType: "text"
 };
 
 Steps.propTypes = {
   current: PropTypes.number.isRequired,
-  status: PropTypes.oneOf(["wait", "process", "finish", "error"])
+  status: PropTypes.oneOf(["wait", "process", "finish", "error"]),
+  successType: PropTypes.oneOf(["icon", "text"]),
 };
 
 export default Steps;
