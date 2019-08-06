@@ -2,7 +2,8 @@ $stepSize: 20px;
 $themColor: #eceff1;
 $themActiveBackgroundColor: #505f79;
 $themFinashBackgroundColor: #c8e6c9;
-$themFinashColor: #4caf50;
+$themFinashColorIcon: #4caf50;
+$themFinashColor: #212121;
 $themErrorBackgroundColor: #f53c32;
 
 .steps-container {
@@ -41,7 +42,7 @@ $themErrorBackgroundColor: #f53c32;
 
   .arrowContent {
     position: relative;
-    width: $stepSize + 10;
+    width: $stepSize + 4px;
     background-color: #fff;
   }
   .arrowStart {
@@ -101,6 +102,10 @@ $themErrorBackgroundColor: #f53c32;
     .content {
       background-color: $themFinashBackgroundColor;
       color: $themFinashColor;
+    }
+
+    .uf-correct-2 {
+      color: $themFinashColorIcon;
     }
   }
 
